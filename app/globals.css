@@ -742,6 +742,11 @@ h4 {
     padding: 48px 24px;
   }
 
+  .hero-shell h1 {
+    font-size: 64px;
+    letter-spacing: -0.06em;
+  }
+
   .hero-shell__visual {
     min-height: 420px;
     padding: 16px;
@@ -810,6 +815,12 @@ h4 {
   .button--wide,
   .nav-bag {
     width: 100%;
+  }
+
+  .hero-shell h1 {
+    font-size: 52px;
+    letter-spacing: -0.05em;
+    line-height: 0.94;
   }
 
   .hero-actions,
