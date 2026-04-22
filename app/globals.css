@@ -774,6 +774,89 @@ h4 {
   line-height: 1.45;
 }
 
+.site-footer {
+  padding: 40px 24px 24px;
+  background: linear-gradient(180deg, #171210 0%, #110d0b 100%);
+  color: var(--surface);
+  border-top: 1px solid rgba(199, 162, 124, 0.14);
+}
+
+.site-footer__layout,
+.site-footer__bottom {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.site-footer__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(200px, 0.7fr) minmax(240px, 0.85fr);
+  gap: 32px;
+  padding-bottom: 24px;
+}
+
+.site-logo--footer {
+  justify-self: start;
+}
+
+.site-footer__brand p,
+.site-footer__contact p,
+.site-footer__contact a,
+.site-footer__links a,
+.site-footer__bottom {
+  color: rgba(255, 250, 245, 0.72);
+}
+
+.site-footer__brand p {
+  max-width: 30rem;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  line-height: 1.76;
+}
+
+.site-footer__label {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.site-footer__links,
+.site-footer__contact {
+  display: grid;
+  gap: 12px;
+}
+
+.site-footer__links a,
+.site-footer__contact a {
+  transition: color 0.2s ease;
+}
+
+.site-footer__links a:hover,
+.site-footer__contact a:hover {
+  color: var(--surface);
+}
+
+.site-footer__contact p {
+  margin-top: 4px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(199, 162, 124, 0.14);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1280px) {
   .hero-shell,
   .selector-layout,
@@ -783,6 +866,10 @@ h4 {
 
   .contact-panel__layout {
     gap: 48px;
+  }
+
+  .site-footer__layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .selector-grid {
@@ -801,6 +888,7 @@ h4 {
 
 @media (max-width: 1120px) {
   .contact-panel__layout,
+  .site-footer__layout,
   .selector-section__header,
   .contact-panel__grid {
     grid-template-columns: 1fr;
@@ -903,6 +991,10 @@ h4 {
     padding: 32px 24px;
   }
 
+  .site-footer {
+    padding: 32px 24px 24px;
+  }
+
   .contact-panel__layout {
     gap: 24px;
   }
@@ -974,6 +1066,15 @@ h4 {
 @media (max-width: 560px) {
   .site-nav {
     padding: 16px;
+  }
+
+  .site-footer {
+    padding-inline: 16px;
+  }
+
+  .site-footer__bottom {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
   }
 
   .chip-row {
