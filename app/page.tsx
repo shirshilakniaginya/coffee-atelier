@@ -2,10 +2,26 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { announcement, coffeeProducts, contacts, navigation, storyHighlights } from "@/lib/coffee-content";
+import { announcement, coffeeProducts, contacts, storyHighlights } from "@/lib/coffee-content";
 
 export default function Home() {
+  const desktopNavigation = [
+    { label: "Магазин", href: "#collection" },
+    { label: "О компании", href: "#philosophy" },
+  ] as const;
+
+  const mobileNavigation = [
+    { label: "Магазин", href: "#collection" },
+    { label: "О компании", href: "#philosophy" },
+    { label: "Доставка", href: "#contacts" },
+    { label: "Контакты", href: "#contacts" },
+    { label: "Статьи", href: "#stories" },
+    { label: "Фотогалерея", href: "#stories" },
+    { label: "Видеогалерея", href: "#stories" },
+  ] as const;
+
   const [selectedProductId, setSelectedProductId] = useState<(typeof coffeeProducts)[number]["id"]>(coffeeProducts[0].id);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const selectorGridRef = useRef<HTMLDivElement | null>(null);
   const selectorScrollFrame = useRef<number | null>(null);
 
@@ -66,7 +82,7 @@ export default function Home() {
 
       <nav className="site-nav">
         <div className="site-nav__side site-nav__side--left">
-          {navigation.slice(0, 2).map((item) => (
+          {desktopNavigation.map((item) => (
             <a key={item.label} href={item.href}>
               {item.label}
             </a>
@@ -84,7 +100,27 @@ export default function Home() {
             Связаться
           </a>
         </div>
+        <button
+          type="button"
+          className={mobileMenuOpen ? "site-nav__toggle site-nav__toggle--open" : "site-nav__toggle"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+          aria-label="Открыть меню"
+          onClick={() => setMobileMenuOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </nav>
+
+      <div className={mobileMenuOpen ? "mobile-nav mobile-nav--open" : "mobile-nav"} id="mobile-navigation">
+        {mobileNavigation.map((item) => (
+          <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+            {item.label}
+          </a>
+        ))}
+      </div>
 
       <section className="hero-shell" id="home">
         <div className="hero-shell__visual">
@@ -264,7 +300,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="story-grid">
+      <section className="story-grid" id="stories">
         {storyHighlights.map((story, index) => {
           const product = coffeeProducts.find((item) => item.id === story.productId) ?? heroProduct;
 
