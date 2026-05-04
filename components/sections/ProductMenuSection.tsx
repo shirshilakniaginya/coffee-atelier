@@ -11,17 +11,8 @@ interface ProductMenuSectionProps {
   error: boolean;
   selectedProductId: string;
   selectedProduct: Product | undefined;
-  cart: { productId: string; title: string; price: number; quantity: number }[];
-  cartTotal: number;
-  cartOpen: boolean;
-  orderSubmitState: "idle" | "submitting" | "success" | "error";
-  checkoutForm: { customer_name: string; phone: string; email: string; comment: string };
   onSelectProduct: (id: string) => void;
   onAddToCart: (product: Product) => void;
-  onQuantityChange: (productId: string, delta: number) => void;
-  onCheckoutChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onSubmitOrder: (e: React.FormEvent) => void;
-  onCloseCart: () => void;
 }
 
 export default function ProductMenuSection({
