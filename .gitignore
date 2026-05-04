@@ -21,6 +21,13 @@ pnpm-debug.log*
 # env
 .env*
 
+# pocketbase local
+pb_data/
+pocketbase.exe
+
+# archives
+*.zip
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
